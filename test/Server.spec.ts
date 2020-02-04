@@ -1,10 +1,10 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 
-import { Server } from "./Server";
-import { RouterModuleImp } from "./entity/Router";
+import { Server } from '../src/Server';
+import { RouterModuleImp } from '../src/entity/Router';
 
-class MockUserRouter implements RouterModuleImp{
+class MockUserRouter implements RouterModuleImp {
     setup() {}
 }
 
@@ -14,7 +14,7 @@ describe('Server', () => {
         const mockUserRouter = new MockUserRouter();
         spyOn(mockUserRouter, 'setup');
 
-        server.setupRouter([mockUserRouter])
+        server.setupRouter([mockUserRouter]);
 
         expect(mockUserRouter.setup).toBeCalled();
     });

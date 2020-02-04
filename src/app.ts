@@ -4,9 +4,13 @@ import * as Router from 'koa-router';
 import { Server } from './Server';
 import { routerModules } from './router';
 
-const server = new Server(Koa, Router);
+import * as config from './config';
 
+const env = process.env.NODE_ENV || 'prod';
+const envConfig = config[env];
+
+const server = new Server(Koa, Router);
 
 server.setupLogger();
 server.setupRouter(routerModules);
-server.listenApp(3000);
+server.listenApp(envConfig.port);

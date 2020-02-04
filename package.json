@@ -6,13 +6,13 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "start": "npm run watch-server",
-    "startProd": "npm run build && node dist/app.js",
+    "start": "cross-env NODE_ENV=dev npm run watch-server",
+    "startProd": "npm run build && pm2 start ecosystem.config.js --env prod",
     "watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' src/app.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "husky": {
-    "hooks":{
+    "hooks": {
       "pre-commit": "npm run tslint && npm run test",
       "pre-push": "npm test && npm run build"
     }
@@ -30,6 +30,7 @@
     "@types/koa": "^2.11.0",
     "@types/koa-router": "^7.4.0",
     "@types/supertest": "^2.0.8",
+    "cross-env": "^7.0.0",
     "husky": "^4.2.1",
     "jest": "^24.9.0",
     "nodemon": "^2.0.2",
