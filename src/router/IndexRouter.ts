@@ -1,6 +1,4 @@
-import { RouterModuleImp } from '../entity/Router';
-
-export class IndexRouter implements RouterModuleImp {
+export class IndexRouter {
     setup(router) {
         router.get('/', (ctx, next) => {
             ctx.body = 'Hello World!';

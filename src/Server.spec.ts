@@ -1,10 +1,9 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 
-import { Server } from '../src/Server';
-import { RouterModuleImp } from '../src/entity/Router';
+import { Server } from './Server';
 
-class MockUserRouter implements RouterModuleImp {
+class MockUserRouter {
     setup() {}
 }
 

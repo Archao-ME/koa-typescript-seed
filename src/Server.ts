@@ -1,4 +1,3 @@
-import { RouterModuleImp } from './entity/Router';
 import * as logger  from 'koa-logger';
 
 export class Server {
@@ -10,7 +9,7 @@ export class Server {
         this.router = new Router();
     }
 
-    setupRouter(routerModules: RouterModuleImp[]) {
+    setupRouter(routerModules) {
         routerModules.forEach((router) => {
             router.setup(this.router);
         });
